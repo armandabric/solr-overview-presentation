@@ -1,2 +1,2 @@
-solr-overview-presentaion
+solr-overview-presentation
 =========================
