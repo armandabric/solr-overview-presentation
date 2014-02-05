@@ -118,6 +118,14 @@
                         }}
                 ]
             });
+
+            // Logitech R400 remote compatibility.
+            window.addEventListener('keyup', function(e) {
+                if (58 === e.keyCode) { // .
+                    Reveal.togglePause();
+                }
+            });
+
         </script>
     </body>
 </html>
