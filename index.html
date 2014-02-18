@@ -197,7 +197,7 @@
                 </section>
 
                 <section>
-                    <h2>Solr vs SGBD traditionnels</h2>
+                    <h2>Solr vs SGBD relationnels</h2>
                     <ul>
                         <li>Pas de jointure complexe (un système de jointure simple existe depuis Solr 4.0)</li>
                         <li>Pas de sous-requêtes (enfin si, mais inutilisable)</li>
@@ -220,10 +220,28 @@
 
                 <section>
                     <h2>Indexation</h2>
-                    <p>L'indaxation consiste à stocker des données au sein de Solr</p>
-                    <p>C'est durant cette phase que Solr construit ses index internes qui lui pemettent d'être très performant</p>
-                    <p>Pour indexer des données il suffit de faire une requête HTTP le requestHandler update du code</p>
-                    <img class="stretch" src="./assets/schema-indexation.jpg" alt="Schéma représentant le procéssus d'indaxion">
+                    <p class="fragment">L'indexation consiste à stocker des données au sein de Solr</p>
+                    <p class="fragment">C'est durant cette phase que Solr construit ses index internes qui lui pemettent d'être très performant</p>
+                    <p class="fragment">Pour indexer des données il suffit de faire une requête HTTP le <em>requestHandler</em> d'update du core</p>
+                    <p class="fragment">Les données doivent être envoyé en XML ou JSON</p>
+                    <!--                    <img class="stretch fragment" src="./assets/schema-indexation.jpg" alt="Schéma représentant le procéssus d'indaxion">-->
+                    <pre class="fragment">
+<code>&lt;add&gt;
+    &lt;doc&gt;
+        &lt;field name=&quot;id&quot;&gt;SP2514N&lt;/field&gt;
+        &lt;field name=&quot;name&quot;&gt;Samsung SpinPoint P120 SP2514N - hard drive - 250 GB - ATA-133&lt;/field&gt;
+        &lt;field name=&quot;cat&quot;&gt;electronics&lt;/field&gt;
+        &lt;field name=&quot;cat&quot;&gt;hard drive&lt;/field&gt;
+        &lt;field name=&quot;features&quot;&gt;7200RPM, 8MB cache, IDE Ultra ATA-133&lt;/field&gt;
+        &lt;field name=&quot;features&quot;&gt;NoiseGuard, SilentSeek technology&lt;/field&gt;
+        &lt;field name=&quot;price&quot;&gt;92&lt;/field&gt;
+        &lt;field name=&quot;popularity&quot;&gt;6&lt;/field&gt;
+        &lt;field name=&quot;inStock&quot;&gt;true&lt;/field&gt;
+    &lt;/doc&gt;
+    &lt;doc&gt;
+        [...]
+    &lt;/doc&gt;
+&lt;/add&gt;</code></pre>
                 </section>
 
                 <section>
