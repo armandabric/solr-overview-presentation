@@ -13,6 +13,7 @@
 
         <link rel="stylesheet" href="./revealjs/css/reveal.min.css">
         <link rel="stylesheet" href="./revealjs/css/theme/serif.css" id="theme">
+        <link rel="stylesheet" href="./assets/revealjs-theme-customization.css">
 
         <!-- For syntax highlighting -->
         <link rel="stylesheet" href="./revealjs/lib/css/zenburn.css">
@@ -29,15 +30,20 @@
     <body>
         <div class="reveal">
             <div class="slides">
-
                 <section>
                     <img style="border: none; box-shadow: none;" src="./assets/logo-solr.png">
 
+                    <!--
                     <aside class="notes" data-markdown>
                         titre
                         =====
                         Il est beau mon logo
                     </aside>
+                    -->
+                </section>
+
+                <section>
+                    <h2>Sommaire</h2>
                 </section>
 
                 <section>
@@ -52,26 +58,176 @@
                     </div>
                 </section>
 
-                <section>
-                    <section>
-                        <h1>Solr Késako ?</h1>
-                    </section>
-
-                    <section>
-                        <h2 data-fragment-index="0">Solr késako ?<br>
-                        </h2>
-                        <p class="visible" data-fragment-index="0">Moteur de recherche fulltext utilisant l'algorithme Lucene</p>
-
-                        <p class="visible" data-fragment-index="1">(= Basse de données non relationnelle spécialisé dans la recherche textuelle)</p>
-                        <p class="visible" data-fragment-index="1">
-                            <br>
-                        </p>
-                        <p class="visible" data-fragment-index="1">Développé par la fondation Apache</p>
-                        <p class="visible" data-fragment-index="1">Actuellement en version 4.6<br>
-                        </p>
-                    </section>
+                <section class="title">
+                    <h1>Introduction</h1>
                 </section>
 
+                <section>
+                    <h2>Solr ?</h2>
+                    <p>Moteur de recherche fulltext utilisant l'algorithme Lucene (= Basse de données non relationnelle spécialisé dans la recherche textuelle)</p>
+                    <br>
+                    <p>Développé par la fondation Apache</p>
+                    <p>Actuellement en version 4.6</p>
+                </section>
+
+                <section>
+                    <h2>Solr une surcouche à Lucene</h2>
+                </section>
+
+                <section>
+                    <h2>Le tour du propriétaire : backend</h2>
+                    <p>Interface d'administration claire et moderne :</p>
+
+                    <!-- todo -->
+                    <p>[capture de la nouvelle vs capture de l'ancienne]</p>
+                </section>
+
+                <section>
+                    <h2>Le tour du propriétaire : communication</h2>
+                    <p>API REST simple qui permet de (presque) tout faire.<br>
+                        <br>Il existe des librairies (officielle ou non) dans de nombreux
+                        langages pour prendre charge la communication avec Solr : PHP, Java, C,
+                        Ruby, Python... <br>
+                    </p>
+                    <p>...et même des bumdles Symphony 2</p>
+                    <p>
+                        <a href="http://www.solarium-project.org">Solarium</a>,
+                        <a href="https://github.com/nelmio/NelmioSolariumBundle">NelmioSolariumBundle</a>,
+                        <a href="http://floriansemm.github.io/SolrBundle/">SolrBundle</a>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Le tour du propriétaire : communication</h2>
+                    <p>
+                        Il existe des librairies (officielle ou non) dans de nombreux langages
+                        pour prendre charge la communication avec Solr : PHP, Java, C, Ruby,
+                        Python...
+                    </p>
+                    <p>
+                        En particulier en PHP on a une extension PECL, des implémentations faire
+                        par la communauté[^1], et même des bumdles[^2] Symphony 2
+                    </p>
+                </section>
+
+                <!-- ~10 -->
+
+                <section>
+                    <h2>Solr vs SGBD traditionnels</h2>
+                </section>
+
+                <section>
+                    <h2>Solr dans le SI</h2>
+                    <p>Un moteur de recherche vient en supplément de BDD existantes (relationnelle, NoSQL, fichier...)</p>
+                    <p>Il <strong>ne peut pas et ne doit pas</strong> remplacer une BDD "long terme"</p>
+                    <br>
+                    <p></p>
+                    <!--                    <div>Il faut donc mettre en place un système pour y transférer les données : l'indexation.<br>
+                                            <br>
+                                        </div>-->
+                </section>
+
+                <section class="title">
+                    <h1>Indexation</h1>
+                </section>
+
+                <section>
+                    <h2>Indexation</h2>
+                    <p>L'indaxation consiste à faire une requête de type update sur un <em>core</em> Solr</p>
+                    <img src="./assets/schema-indexation.jpg" alt="Schéma représentant le procéssus d'indaxion">
+                </section>
+
+                <section>
+                    <h2>Indexation</h2>
+                    <p>Trois procédés majeurs d'indexation existent :</p>
+                    <ul>
+                        <li><em>Différé complète</em> : un bach d'indexation ré-indexe toutes les données à interval régulier</li>
+                        <li><em>Différé  incrémental</em> : un bach d'indexation indexe les nouvelles données et les données modifiés à interval régulier</li>
+                        <li><em>Direct</em> : lors de la mise à jours des données dans les applications, mettre à jours les données dans Solr</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Configuration du schéma.xml à l'indexation</h2>
+                </section>
+
+                <section class="title">
+                    <h1>Introduction à la recherche</h1>
+                </section>
+
+                <section>
+                    <h2>Présentation de la synthaxe</h2>
+                </section>
+
+                <section>
+                    <h2>Survol des nombreux pramètres</h2>
+                </section>
+
+                <section>
+                    <h2>Survol des types de retours</h2> <!-- Réellement utile ? -->
+                </section>
+
+                <!-- ~20 -->
+
+                <section>
+                    <h2>Debugging</h2>
+                </section>
+
+                <section class="title">
+                    <h1>Recherche avancées</h1>
+                </section>
+
+                <section>
+                    <h2>Search revelancy</h2>
+                </section>
+
+                <section>
+                    <h2>Grouping</h2>
+                </section>
+
+                <section>
+                    <h2>Faceting</h2>
+                </section>
+
+                <section class="title">
+                    <h1>Modules complémentaires</h1>
+                </section>
+
+                <section>
+                    <h2>Highlight</h2>
+                </section>
+
+                <section>
+                    <h2>SpellCheck</h2>
+                </section>
+
+                <section>
+                    <h2>Autocomplete / suggester</h2>
+                </section>
+
+                <section>
+                    <h2>Recherche spaciale</h2>
+                </section>
+
+                <!-- ~30 -->
+
+                <section>
+                    <h2></h2>
+                </section>
+
+                <section>
+                    <h1>Fin</h1>
+                    <p>C'est pas tout mais moi j'ai soif.</p>
+                </section>
+
+                <section>
+                    <ul>
+                        <li>Core</li>
+                        <li>schema</li>
+                        <li>field <br>
+                        </li>
+                    </ul>
+                </section>
             </div>
         </div>
 
@@ -82,7 +238,7 @@
             // Full list of configuration options available here:
             // https://github.com/hakimel/reveal.js#configuration
             Reveal.initialize({
-                controls: true,
+                controls: false,
                 progress: true,
                 slideNumber: true,
                 history: true,

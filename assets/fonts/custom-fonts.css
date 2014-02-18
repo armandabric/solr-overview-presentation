@@ -1,0 +1,81 @@
+@font-face {
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Karla'), local('Karla-Regular'), url('./Karla/Karla-Regular.ttf');
+}
+@font-face {
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Karla Bold'), local('Karla-Bold'), url('./Karla/Karla-Bold.ttf');
+}
+@font-face {
+    font-family: 'Karla';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Karla Italic'), local('Karla-Italic'), url('./Karla/Karla-Italic.ttf');
+}
+@font-face {
+    font-family: 'Karla';
+    font-style: italic;
+    font-weight: 700;
+    src: local('Karla Bold Italic'), local('Karla-BoldItalic'), url('./Karla/Karla-Bolditalic.ttf');
+}
+
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 100;
+    src: local('Raleway Thin'), local('Raleway-Thin'), url('./Raleway/Raleway-Thin.ttf');
+}
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 200;
+    src: local('Raleway ExtraLight'), local('Raleway-ExtraLight'), url('./Raleway/Raleway-ExtraLight.ttf');
+}
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Raleway Light'), local('Raleway-Light'), url('./Raleway/Raleway-Light.ttf');
+}
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Raleway'), url('./Raleway/Raleway.ttf');
+}
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Raleway Medium'), local('Raleway-Medium'), url('./Raleway/Raleway-Medium.ttf');
+}
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Raleway SemiBold'), local('Raleway-SemiBold'), url('./Raleway/Raleway-SemiBold.ttf');
+}
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Raleway Bold'), local('Raleway-Bold'), url('./Raleway/Raleway-Bold.ttf');
+}
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 800;
+    src: local('Raleway ExtraBold'), local('Raleway-ExtraBold'), url('./Raleway/Raleway-ExtraBold.ttf');
+}
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 900;
+    src: local('Raleway Heavy'), local('Raleway-Heavy'), url('./Raleway/Raleway-Heavy.ttf');
+}
+
+/**/

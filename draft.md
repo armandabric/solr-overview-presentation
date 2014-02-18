@@ -46,7 +46,7 @@ par la communauté[^1], et même des bumdles[^2] Symphony 2
 
 ## Un SI avec Solr
 
-Un moteur de recherche viens généralement en supplément de BDD
+Un moteur de recherche vient généralement en supplément de BDD
 existantes (relationnelle, NoSQL, fichier...).
 
 [schéma de présentation]
