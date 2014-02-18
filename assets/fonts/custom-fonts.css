@@ -45,7 +45,7 @@
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
-    src: local('Raleway'), url('./Raleway/Raleway.ttf');
+    src: local('Raleway'), url('./Raleway/Raleway-Regular.ttf');
 }
 @font-face {
     font-family: 'Raleway';

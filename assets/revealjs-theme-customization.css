@@ -1,11 +1,8 @@
-@import './fonts/karla.css';
+@import './fonts/custom-fonts.css';
 
 .reveal {
     font-family: Raleway, Verdana, sans-serif;
-/*    font-size: 36px;
-    font-weight: normal;
-    letter-spacing: -0.02em;
-    color: black;*/
+    font-size: 30px;
 }
 
 /*********************************************
@@ -26,6 +23,28 @@
     text-shadow: none;
 }
 
-/*.reveal h1 {
 
+/******************************************************************************/
+.reveal p {
+    /*text-align: left;*/
+}
+.reveal ul {
+    margin: 0;
+}
+.reveal ul.discret li {
+    margin: 0;
+    list-style: none;
+}
+
+/*.reveal code {
+    font-family: monospace;
+    font-size: 0.9em;
 }*/
+
+.reveal pre.full-size {
+    width: 100%;
+    height: 100%;
+}
+.reveal pre.full-size code {
+    max-height: none;
+}
