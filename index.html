@@ -44,10 +44,6 @@
                 </section>
 
                 <section>
-                    <h2>Sommaire</h2>
-                </section>
-
-                <section>
                     <h2>Armand Abric</h2>
                     <br>Développeur chez <a href="http://www.virtual-expo.com/">Virtual-Expo</a>, Marseille <br>
                     <br>
@@ -73,18 +69,16 @@
                     <br>
                     <p>Développé par la Fondation Apache</p>
                     <p>Actuellement en version 4.6.1</p>
+
+                    <aside class="notes" data-markdown>
+                        Intégration facilité dans certains CMS : *Drupal* et *Typo3*
+                    </aside>
                 </section>
 
                 <section>
-                    <h2>Solr une surcouche à Lucene</h2>
-                </section>
+                    <h2>Interface d'administration</h2>
 
-                <section>
-                    <h2>Le backend</h2>
-                    <p>Interface d'administration claire et moderne :</p>
-
-                    <!-- todo -->
-                    <p>[capture de la nouvelle vs capture de l'ancienne]</p>
+                    <img class="stretch" src="./assets/admin-screenshot.png" alt="Capture d'écran de l'outil d'administration de Solr" />
                 </section>
 
                 <section>
@@ -110,8 +104,6 @@
                     </p>
                 </section>
 
-                <!-- ~10 -->
-
                 <section>
                     <h2>Terminologies 1/2</h2>
                     <ul class="discret">
@@ -123,46 +115,52 @@
                 </section>
 
                 <section>
+                    [schema multi core]
+                </section>
+
+                <section>
                     <h2>Terminologies 2/2</h2>
                     <ul class="discret">
-                        <li class="fragment"><strong>core</strong></li>
+                        <li class="fragment">n <strong>core</strong></li>
                         <li>
                             <ul>
-                                <li class="fragment"><strong>schema</strong></li>
+                                <li class="fragment"> 1 <strong>schema</strong> : <em>schema.xml</em></li>
                                 <li>
                                     <ul>
-                                        <li class="fragment"><strong>fieldType</strong> : définitions des type des données disponibles</li>
+                                        <li class="fragment">n <strong>fieldType</strong> : définitions des type des données disponibles</li>
                                         <li>
                                             <ul>
-                                                <li class="fragment"><strong>analyzer</strong> : à l'indexation ou à la requête</li>
+                                                <li class="fragment">0 à 2 <strong>analyzer</strong> : un à l'indexation et un à la requête</li>
                                                 <li>
                                                     <ul class="fragment">
-                                                        <li><strong>tokenizer</strong> : découpeur de token</li>
-                                                        <li><strong>filter</strong> : modifieurs de token</li>
+                                                        <li>1 <strong>tokenizer</strong> : découpeur de token</li>
+                                                        <li>n <strong>filter</strong> : modifieurs de token</li>
                                                     </ul>
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li class="fragment"><strong>field</strong></li>
+                                        <li class="fragment">n <strong>field</strong></li>
                                         <li>
                                             <ul>
-                                                <li class="fragment"><strong>name</strong> :nom du champs</li>
+                                                <li class="fragment"><strong>name</strong> : nom du champs</li>
                                                 <li class="fragment"><strong>type</strong> : type de données du champs (cf. fieldType)</li>
-                                            </ul>
-                                            <ul class="fragment">
-                                                <li><strong>indexed</strong></li>
-                                                <li><strong>stored</strong></li>
-                                                <li><strong>multivalued</strong></li>
-                                                <li><strong>required</strong></li>
+
+                                                <li class="fragment"> 
+                                                    <br>
+                                                    <strong>indexed</strong> / 
+                                                    <strong>stored</strong> / 
+                                                    <strong>multivalued</strong> /
+                                                    <strong>required</strong>
+                                                </li>
                                             </ul>
                                         </li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
-                    </ul>
+                    </ul>   
 
-                     <aside class="notes" data-markdown>
+                    <aside class="notes" data-markdown>
                         __analyzer__ : "*Analyzers are components that pre-process input text at index time and/or at search time.*"
 
                         __tokenizer__ : Unique "*A Tokenizer splits a stream of characters (from each individual field value) into a series of tokens.*"
@@ -175,18 +173,21 @@
                     <h2>schema.xml</h2>
                     <pre class="full-size"><code>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
-&lt;schema name=&quot;dealer&quot; version=&quot;1.5&quot;&gt;
+&lt;schema name=&quot;store&quot; version=&quot;1.5&quot;&gt;
     &lt;types&gt;
-        &lt;fieldtype name=&quot;string&quot; class=&quot;solr.StrField&quot; sortMissingLast=&quot;true&quot; omitNorms=&quot;true&quot; /&gt;
+        &lt;fieldtype name=&quot;string&quot; class=&quot;solr.StrField&quot; /&gt;
         &lt;fieldType name=&quot;int&quot; class=&quot;solr.IntField&quot; /&gt;
-        &lt;fieldType name=&quot;latLon&quot; class=&quot;solr.LatLonType&quot; subFieldSuffix=&quot;_latLon&quot;/&gt;
+        &lt;fieldType name=&quot;double&quot; class=&quot;solr.DoubleField&quot; /&gt;
+        &lt;fieldType name=&quot;latLon&quot; class=&quot;solr.LatLonType&quot; [...] /&gt;
     &lt;/types&gt;
 
     &lt;fields&gt;
         &lt;field name=&quot;id&quot; type=&quot;int&quot; indexed=&quot;true&quot; stored=&quot;true&quot; required=&quot;true&quot; /&gt;
         &lt;field name=&quot;name&quot; type=&quot;string&quot; indexed=&quot;true&quot; stored=&quot;false&quot; required=&quot;true&quot; /&gt;
-        &lt;field name=&quot;company_id&quot; type=&quot;int&quot; indexed=&quot;true&quot; stored=&quot;true&quot; multiValued=&quot;true&quot; required=&quot;true&quot; /&gt;
+        &lt;field name=&quot;owner_id&quot; type=&quot;int&quot; indexed=&quot;true&quot; stored=&quot;true&quot; multiValued=&quot;true&quot; required=&quot;true&quot; /&gt;
         &lt;field name=&quot;coordinates&quot; type=&quot;latLon&quot; indexed=&quot;true&quot; stored=&quot;false&quot; required=&quot;true&quot; /&gt;
+
+        [...]
     &lt;/fields&gt;
 
     &lt;uniqueKey&gt;id&lt;/uniqueKey&gt;
@@ -194,8 +195,67 @@
 &lt;/schema&gt;
                     </code></pre>
                 </section>
+
                 <section>
-                    <h2>fieldType complexe</h2>
+                    <h2>Solr vs SGBD traditionnels</h2>
+                    <ul>
+                        <li>Pas de jointure complexe (un système de jointure simple existe depuis Solr 4.0)</li>
+                        <li>Pas de sous-requêtes (enfin si, mais inutilisable)</li>
+                        <li>Transactionnel aux coeurs du logiciel : toutes modification de donnée ce fait dans une transaction (commit/rollback obligatoire)</li>
+                        <li>"egal"</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Solr dans le SI</h2>
+                    <p>Un moteur de recherche vient en supplément de BDD existantes (relationnelle, NoSQL, fichier...)</p>
+                    <p>Il <strong>ne peut pas et ne doit pas</strong> remplacer une BDD "long terme"</p>
+                </section>
+
+                <!-- ~10 -->
+
+                <section class="title">
+                    <h1>Indexation</h1>
+                </section>
+
+                <section>
+                    <h2>Indexation</h2>
+                    <p>L'indaxation consiste à stocker des données au sein de Solr</p>
+                    <p>C'est durant cette phase que Solr construit ses index internes qui lui pemettent d'être très performant</p>
+                    <p>Pour indexer des données il suffit de faire une requête HTTP le requestHandler update du code</p>
+                    <img class="stretch" src="./assets/schema-indexation.jpg" alt="Schéma représentant le procéssus d'indaxion">
+                </section>
+
+                <section>
+                    <h2>Le processus d'indexation</h2>
+                    <p class="fragment">Il existe trois méthodes pour gérer sont indexation :</p>
+                    <br>
+                    <p class="fragment">"<strong>Full indexation"</strong>" : un bach d'indexation ré-indexe toutes les données à interval régulier</p>
+                    <p class="fragment">"<strong>Indexation incrémentale</strong>" : un bach d'indexation indexe les nouvelles données et les données modifiés à interval régulier</p>
+                    <p class="fragment">"<strong>Indexation en live</strong>" : lors de la mise à jours des données dans les applications, mettre à jours les données dans Solr</p>
+                    <br>
+                    <p class="fragment">Aucune n'est parfaite. Il faut choisir en fonction de son application</p>
+                    <p class="fragment">
+                        Plusieurs de ces techniques peuvent/doivent être utiliser pour en paralelle :
+                        <br>
+                        il est toujours utile de pouvoir ré-indexer tout un core à partir de zéro
+                        <br>
+                        (oui Solr plante des fois)
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Configuration du schéma.xml à l'indexation</h2>
+                    <p>Une partie du travail de recherche se prépare au moment de l'indexation</p>
+                    <br>
+                    <p>Il faut préparer les données pour simplifier le travail de requête : </p>
+                    <p>
+                        nettoyer les caractères spéciaux, retirer les balises HTML, gérer les accents en fonction de la langue...
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Un vrai fieldType</h2>
                     <pre class="full-size"><code>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
 &lt;!-- [...] --&gt;
@@ -229,75 +289,47 @@
                     </code></pre>
                 </section>
 
-                <section>
-                    <h2>Solr vs SGBD traditionnels</h2>
-                    <p>Pas de jointure complexe (un système de jointure simple existe depuis Solr 4.0)</p>
-                    <p>Transactionnel aux coeurs du logiciel : impossible de modifier une donnée en direct (obligation de commit toutes les modifications)</p>
-                </section>
-
-                <section>
-                    <h2>Solr dans le SI</h2>
-                    <p>Un moteur de recherche vient en supplément de BDD existantes (relationnelle, NoSQL, fichier...)</p>
-                    <p>Il <strong>ne peut pas et ne doit pas</strong> remplacer une BDD "long terme"</p>
-                </section>
-
-                <section class="title">
-                    <h1>Indexation</h1>
-                </section>
-
-                <section>
-                    <h2>Indexation</h2>
-                    <p>L'indaxation consiste à stocker des données au sein de Solr</p>
-                    <p>C'est durant cette phase que Solr construit ses index internes qui lui pemettent d'être très performant</p>
-                    <p>Pour indexer des données il suffit de faire une requête HTTP le requestHandler update du code</p>
-                    <img class="stretch" src="./assets/schema-indexation.jpg" alt="Schéma représentant le procéssus d'indaxion">
-                </section>
-
-                <section>
-                    <h2>Indexation : Howto ?</h2>
-                    <p>Trois procédés majeurs d'indexation existent :</p>
-                    <ul>
-                        <li><em>Différé complète</em> : un bach d'indexation ré-indexe toutes les données à interval régulier</li>
-                        <li><em>Différé  incrémental</em> : un bach d'indexation indexe les nouvelles données et les données modifiés à interval régulier</li>
-                        <li><em>Direct</em> : lors de la mise à jours des données dans les applications, mettre à jours les données dans Solr</li>
-                    </ul>
-                </section>
-
-                <section>
-                    <h2>Indexation : en pratique</h2>
-                    <p>Trois procédés majeurs d'indexation existent :</p>
-                    <ul>
-                        <li><em>Différé complète</em> : un bach d'indexation ré-indexe toutes les données à interval régulier</li>
-                        <li><em>Différé  incrémental</em> : un bach d'indexation indexe les nouvelles données et les données modifiés à interval régulier</li>
-                        <li><em>Direct</em> : lors de la mise à jours des données dans les applications, mettre à jours les données dans Solr</li>
-                    </ul>
-                </section>
-
-                <section>
-                    <h2>Configuration du schéma.xml à l'indexation</h2>
-                </section>
-
-                <section class="title">
-                    <h1>Introduction à la recherche</h1>
+                <section class="title">                    
+                    <img src="./assets/lycos-logo.jpg" alt=""/>
                 </section>
 
                 <section>
                     <h2>Présentation de la synthaxe</h2>
+
+                    <div class="fragment">
+                        <pre><code class="no-highlight">http://localhost:8983/solr/[coreName]/select?q=*:*</code></pre>
+                        <a>&nbsp;</a>
+                    </div>
+
+                    <div class="fragment">
+                        <pre><code class="no-highlight">http://localhost:8983/solr/collection1/select?q=*:*</a></code></pre>
+                        <a href="http://localhost:8983/solr/collection1/select?q=*:*">Tester</a>
+                    </div>
+
+                    <div class="fragment">
+                        <pre><code class="no-highlight">http://localhost:8983/solr/collection1/select?q=name:apple&fl=id,name</a></code></pre>
+                        <a href="http://localhost:8983/solr/collection1/select?q=name:apple&fl=id,name">Tester</a>
+                    </div>
                 </section>
 
                 <section>
-                    <h2>Survol des nombreux pramètres</h2>
-                </section>
+                    <h2>Paramètres de base</h2>
 
-                <section>
-                    <h2>Survol des types de retours</h2> <!-- Réellement utile ? -->
+                    <ul>
+                        <li><strong>q</strong> : coeurs de la requête de recherche</li>
+                        <li><strong>fq</strong> : clause "where" de filtre des résultat (ne perturbe pas la clause <em>q</em>)</li>
+                        <li><strong>fl</strong> : liste des champs du document a retourner</li>
+                        <li><strong>rows</strong> : nombre de document maximum</li>
+                        <li><strong>start</strong> : offset</li>
+                        <li><strong>sort</strong> : ordonancement des résulats</li>
+                    </ul>
                 </section>
-
-                <!-- ~20 -->
 
                 <section>
                     <h2>Debugging</h2>
                 </section>
+
+                <!-- ~20 -->
 
                 <section class="title">
                     <h1>Recherche avancées</h1>
@@ -315,21 +347,21 @@
                     <h2>Faceting</h2>
                 </section>
 
-                <section class="title">
-                    <h1>Modules complémentaires</h1>
-                </section>
+                <!--                <section class="title">
+                                    <h1>Modules complémentaires</h1>
+                                </section>-->
 
                 <section>
                     <h2>Highlight</h2>
                 </section>
 
-                <section>
-                    <h2>SpellCheck</h2>
-                </section>
+                <!--                <section>
+                                    <h2>SpellCheck</h2>
+                                </section>-->
 
-                <section>
-                    <h2>Autocomplete / suggester</h2>
-                </section>
+                <!--                <section>
+                                    <h2>Autocomplete / suggester</h2>
+                                </section>-->
 
                 <section>
                     <h2>Recherche spaciale</h2>
