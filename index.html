@@ -56,7 +56,7 @@
                     <p>
                         Moteur de recherche fulltext utilisant l'algorithme Lucene
                         <br>
-                        <small>= Basse de données non relationnelle spécialisé dans la recherche textuelle</small>
+                        <small>= Base de données non relationnelle spécialisée dans la recherche textuelle</small>
                     </p>
                     <br>
                     <p>Développé par la Fondation Apache</p>
@@ -78,7 +78,7 @@
                     <p class="fragment">API REST en JSON/XML</p>
                     <br>
                     <p class="fragment">
-                        De nombreuses librairies, dans de nombreux languages :
+                        De nombreuses librairies dans de nombreux languages :
                         <br>
                         Java, C, Ruby, Python...
                     </p>
@@ -89,7 +89,7 @@
                     <p class="fragment">...et même des bundles Symphony 2</p>
                     <br>
                     <p class="fragment">
-                        <a href="http://pecl.php.net/package/solr">Package PECL</a> /
+                        <a href="http://pecl.php.net/package/solr">PECL</a> /
                         <a href="http://www.solarium-project.org">Solarium</a> /
                         <a href="https://github.com/nelmio/NelmioSolariumBundle">NelmioSolariumBundle</a> /
                         <a href="http://floriansemm.github.io/SolrBundle/">SolrBundle</a>
@@ -125,8 +125,7 @@
 
     &lt;uniqueKey&gt;id&lt;/uniqueKey&gt;
     &lt;solrQueryParser defaultOperator=&quot;OR&quot; /&gt;
-&lt;/schema&gt;
-                    </code></pre>
+&lt;/schema&gt;</code></pre>
                 </section>
 
                 <section>
@@ -136,8 +135,8 @@
                     <ul>
                         <li class="fragment"><strong>Pas de jointure complexe</strong>, mais des jointures simples</li>
                         <li class="fragment"><strong>Pas de sous-requêtes</strong></li>
-                        <li class="fragment"><strong>Transactionnel</strong> aux coeurs du logiciel : toutes modification de données se fait dans une transaction (commit/rollback obligatoire)</li>
-                        <li class="fragment">La <strong>notion "d'égalité" varie</strong> en fontion du core et du champs sur lequel on travaille</li>
+                        <li class="fragment"><strong>Transactionnel</strong> aux coeurs du logiciel : toutes modifications de données se fait dans une transaction (commit/rollback obligatoire)</li>
+                        <li class="fragment">La <strong>notion "d'égalité" varie</strong> en fonction du core et du champs sur lequel on travaille</li>
                         <li class="fragment">Un changement dans le fichier schema.xml entraine <strong>une ré-indexation complète des données</strong></li>
                     </ul>
                 </section>
@@ -156,9 +155,9 @@
                     <h2>Indexation</h2>
                     <p class="fragment">L'indexation consiste à stocker des données au sein de Solr</p>
                     <p class="fragment">C'est durant cette phase que Solr construit ses index internes qui lui pemettent d'être très performant</p>
-                    <p class="fragment">Pour indexer des données il suffit de faire une requête HTTP le <em>requestHandler</em> d'update du core</p>
+                    <p class="fragment">Pour indexer des données il suffit de faire une requête HTTP sur un <em>requestHandler</em> d'update du core</p>
                     <p class="fragment">Les données doivent être envoyé en XML ou JSON</p>
-                    <!--                    <img class="stretch fragment" src="./assets/schema-indexation.jpg" alt="Schéma représentant le procéssus d'indaxion">-->
+
                     <pre class="fragment">
 <code>&lt;add&gt;
     &lt;doc&gt;
@@ -183,8 +182,8 @@
                     <p class="fragment left">Il existe trois méthodes pour gérer l'indexation :</p>
                     <ul>
                         <li class="fragment"><strong>Full indexation</strong> : un bach d'indexation ré-indexe toutes les données à interval régulier</li>
-                        <li class="fragment"><strong>Indexation incrémentale</strong> : un bach d'indexation indexe les chamgements depuis la dernière indexation</li>
-                        <li class="fragment"><strong>Indexation en live</strong> : lors de la sauvegarde d'une entité dans le reste du SI, on déclanche  la mise à jour des données de l'entité</li>
+                        <li class="fragment"><strong>Indexation incrémentale</strong> : un bach d'indexation indexe les changements depuis la dernière indexation</li>
+                        <li class="fragment"><strong>Indexation en live</strong> : lors de la sauvegarde d'une entité dans le reste du SI, on déclanche la mise à jour des données de l'entité au sein de Solr</li>
                     </ul>
                     <br>
                     <br>
@@ -259,7 +258,7 @@
 
                 <section class="title">
                     <h1>Va chercher !</h1>
-                    <img src="./assets/lycos-logo.jpg" alt=""/>
+                    <img src="./assets/lycos-logo.jpg" alt="Wouaf"/>
                 </section>
 
                 <section>
