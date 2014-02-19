@@ -7,6 +7,7 @@
         <field name="content" type="text_fr" indexed="true" stored="true" />
         <field name="tags" type="text_general" indexed="true" stored="true" multiValued="true" />
         <field name="author_id" type="int" indexed="true" stored="true" />
+        <field name="game_id" type="int" indexed="true" stored="true" />
 
         <!-- Référencé quelque par dans la conf... mais non utilisé. -->
         <field name="text" type="text_general" indexed="true" stored="false" multiValued="true"/>

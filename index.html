@@ -288,23 +288,27 @@
 
                     <br>
                     <div class="fragment">
-                        <pre><code class="no-highlight">http://localhost:8983/solr/collection1/select?q=*:*</code></pre>
+                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=*:*</code></pre>
                     </div>
                     <br>
                     <div class="fragment">
-                        <pre><code class="no-highlight">http://localhost:8983/solr/collection1/select?q=name:apple&fl=id,name</code></pre>
+                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=content:battlefield&fl=id,content</code></pre>
                     </div>
                     <br>
                     <div class="fragment">
-                        <pre><code class="no-highlight">http://localhost:8983/solr/collection1/select?q=name:"hard drive"&fl=id,name</code></pre>
+                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=content:(battlefield DICE)&fl=id,content</code></pre>
                     </div>
                     <br>
                     <div class="fragment">
-                        <pre><code class="no-highlight">http://localhost:8983/solr/collection1/select?q=name:"hard drive"~10&fl=id,name</code></pre>
+                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=content:"battlefield DICE"&fl=id,content</code></pre>
                     </div>
                     <br>
                     <div class="fragment">
-                        <pre><code class="no-highlight">http://localhost:8983/solr/collection1/select?q=name:apple AND owner_id:42&fl=id,name</code></pre>
+                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=content:"battlefield DICE"~10&fl=id,content</code></pre>
+                    </div>
+                    <br>
+                    <div class="fragment">
+                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=content:battlefield AND author_id:2&fl=id,content,author_id</code></pre>
                     </div>
                 </section>
 
@@ -314,10 +318,25 @@
 
                 <section>
                     <h2>Search revelancy</h2>
+                    <br>
+                    <p><strong>Scoring</strong> : Personaliser l'importance des clauses de match de la requête (uniquement le paramètre "q")</p>
+                    <br>
+                    <div class="fragment">
+                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=content:battlefield AND (author_id:2 OR author_id:3 OR author_id:4)&fl=id,content,author_id</code></pre>
+                    </div>
+                    <br>
+                    <div class="fragment">
+                        <p>Favorison l'auteur #2 : "<code>author_id:2^100"</code></p>
+                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=content:battlefield AND (author_id:2 OR author_id:3 OR author_id:2^100)&fl=id,content,author_id</code></pre>
+                    </div>
                 </section>
 
                 <section>
                     <h2>Debugging</h2>
+
+                    <p>Relençons la requête précédente avec les informations de débug : "<code>&debugQuery=true</code>"</p>
+                    <br>
+                    <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=content:battlefield AND (author_id:2 OR author_id:3 OR author_id:2^100)&fl=id,content,author_id&debugQuery=true&indent=true</code></pre>
                 </section>
 
                 <section>
@@ -326,6 +345,16 @@
 
                 <section>
                     <h2>Faceting</h2>
+
+                    <img class="fragment stretch" src="./assets/amazon-faceting.jpg" alt="Exemple de faceting sur amazon.com" />
+
+                    <div class="fragment">
+                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=*:*&rows=0&facet=true&facet.field=author_id</code></pre>
+                    </div>
+
+                    <div class="fragment">
+                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=*:*&rows=0&facet=true&facet.field=author_id&facet.limit=3</code></pre>
+                    </div>
                 </section>
 
                 <section>
@@ -398,6 +427,17 @@
                     Reveal.togglePause();
                 }
             });
+
+            // Open solr query in new window.
+            var queryRunners = document.querySelectorAll('pre.query');
+            for (var i = 0; i < queryRunners.length; i++) {
+                queryRunners[i].addEventListener('click', function() {
+                    var codeNode = this.querySelector('code');
+                    var url = codeNode.textContent.replace(/\n/g, '');
+
+                    window.open(url);
+                });
+            }
 
         </script>
     </body>

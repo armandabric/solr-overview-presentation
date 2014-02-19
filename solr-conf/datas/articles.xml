@@ -239,22 +239,6 @@
         <field name="game_id">42</field>
     </doc>
     <doc>
-        <field name="id">17</field>
-        <field name="title"></field>
-        <field name="content"></field>
-        <field name="tags"></field>
-        <field name="author_id">0</field>
-        <field name="game_id"></field>
-    </doc>
-    <doc>
-        <field name="id">18</field>
-        <field name="title"></field>
-        <field name="content"></field>
-        <field name="tags"></field>
-        <field name="author_id">0</field>
-        <field name="game_id"></field>
-    </doc>
-    <doc>
         <field name="id">19</field>
         <field name="title">Tag To The Bone</field>
         <field name="content">
@@ -274,7 +258,6 @@
         <field name="tags">Humble Bundle</field>
         <field name="tags">Promo</field>
         <field name="author_id">7</field>
-        <field name="game_id"></field>
     </doc>
 </add>
 
