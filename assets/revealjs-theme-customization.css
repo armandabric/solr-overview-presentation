@@ -25,26 +25,33 @@
 
 
 /******************************************************************************/
-.reveal p {
-    /*text-align: left;*/
+.reveal img.no-border {
+    border: none;
+    box-shadow: none;
 }
+
+.reveal p.left {
+    text-align: left;
+}
+
 .reveal ul {
+    list-style: square;
+}
+
+.reveal ul.discre {
     margin: 0;
 }
+
 .reveal ul.discret li {
     margin: 0;
     list-style: none;
 }
 
-/*.reveal code {
-    font-family: monospace;
-    font-size: 0.9em;
-}*/
-
 .reveal pre.full-size {
     width: 100%;
     height: 100%;
 }
+
 .reveal pre.full-size code {
     max-height: none;
 }

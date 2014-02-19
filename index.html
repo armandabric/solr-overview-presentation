@@ -32,15 +32,7 @@
         <div class="reveal">
             <div class="slides">
                 <section>
-                    <img style="border: none; box-shadow: none;" src="./assets/logo-solr.png">
-
-                    <!--
-                    <aside class="notes" data-markdown>
-                        titre
-                        =====
-                        Il est beau mon logo
-                    </aside>
-                    -->
+                    <img class="no-border" src="./assets/logo-solr.png" alt="Logo Solr">
                 </section>
 
                 <section>
@@ -105,68 +97,9 @@
                 </section>
 
                 <section>
-                    <h2>Terminologies 1/2</h2>
-                    <ul class="discret">
-                        <li class="fragment"><strong>core</strong> &asymp; une table en relationnel</li>
-                        <li class="fragment"><strong>schema</strong> &asymp; <code>DESCRIBE TABLE "MaTable";</code></li>
-                        <li class="fragment"><strong>field</strong> &asymp; une colone en relationnel</li>
-                        <li class="fragment"><strong>document</strong> &asymp; un n-uplet (une ligne) en relationnel</li>
-                    </ul>
-                </section>
+                    <h2>Structure interne Solr</h2>
 
-                <section>
-                    [schema multi core]
-                </section>
-
-                <section>
-                    <h2>Terminologies 2/2</h2>
-                    <ul class="discret">
-                        <li class="fragment">n <strong>core</strong></li>
-                        <li>
-                            <ul>
-                                <li class="fragment"> 1 <strong>schema</strong> : <em>schema.xml</em></li>
-                                <li>
-                                    <ul>
-                                        <li class="fragment">n <strong>fieldType</strong> : définitions des type des données disponibles</li>
-                                        <li>
-                                            <ul>
-                                                <li class="fragment">0 à 2 <strong>analyzer</strong> : un à l'indexation et un à la requête</li>
-                                                <li>
-                                                    <ul class="fragment">
-                                                        <li>1 <strong>tokenizer</strong> : découpeur de token</li>
-                                                        <li>n <strong>filter</strong> : modifieurs de token</li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="fragment">n <strong>field</strong></li>
-                                        <li>
-                                            <ul>
-                                                <li class="fragment"><strong>name</strong> : nom du champs</li>
-                                                <li class="fragment"><strong>type</strong> : type de données du champs (cf. fieldType)</li>
-
-                                                <li class="fragment"> 
-                                                    <br>
-                                                    <strong>indexed</strong> / 
-                                                    <strong>stored</strong> / 
-                                                    <strong>multivalued</strong> /
-                                                    <strong>required</strong>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>   
-
-                    <aside class="notes" data-markdown>
-                        __analyzer__ : "*Analyzers are components that pre-process input text at index time and/or at search time.*"
-
-                        __tokenizer__ : Unique "*A Tokenizer splits a stream of characters (from each individual field value) into a series of tokens.*"
-
-                        __filter__ : "*Tokens produced by the Tokenizer are passed through a series of Token Filters that add, change, or remove tokens.*"
-                    </aside>
+                    <img class="stretch no-border" src="assets/solr-core-diagram-2.png" alt=""/>
                 </section>
 
                 <section>
@@ -198,11 +131,14 @@
 
                 <section>
                     <h2>Solr vs SGBD relationnels</h2>
+
+                    <p class="fragment left">Principales différences à l'usage :</p>
                     <ul>
-                        <li>Pas de jointure complexe (un système de jointure simple existe depuis Solr 4.0)</li>
-                        <li>Pas de sous-requêtes (enfin si, mais inutilisable)</li>
-                        <li>Transactionnel aux coeurs du logiciel : toutes modification de donnée ce fait dans une transaction (commit/rollback obligatoire)</li>
-                        <li>"egal"</li>
+                        <li class="fragment"><strong>Pas de jointure complexe</strong>, mais des jointures simples</li>
+                        <li class="fragment"><strong>Pas de sous-requêtes</strong></li>
+                        <li class="fragment"><strong>Transactionnel</strong> aux coeurs du logiciel : toutes modification de données se fait dans une transaction (commit/rollback obligatoire)</li>
+                        <li class="fragment">La <strong>notion "d'égalité" varie</strong> en fontion du core et du champs sur lequel on travaille</li>
+                        <li class="fragment">Un changement dans le fichier schema.xml entraine <strong>une ré-indexation complète des données</strong></li>
                     </ul>
                 </section>
 
@@ -211,8 +147,6 @@
                     <p>Un moteur de recherche vient en supplément de BDD existantes (relationnelle, NoSQL, fichier...)</p>
                     <p>Il <strong>ne peut pas et ne doit pas</strong> remplacer une BDD "long terme"</p>
                 </section>
-
-                <!-- ~10 -->
 
                 <section class="title">
                     <h1>Indexation</h1>
@@ -246,30 +180,33 @@
 
                 <section>
                     <h2>Le processus d'indexation</h2>
-                    <p class="fragment">Il existe trois méthodes pour gérer sont indexation :</p>
+                    <p class="fragment left">Il existe trois méthodes pour gérer sont indexation :</p>
+                    <ul>
+                        <li class="fragment"><strong>Full indexation</strong> : un bach d'indexation ré-indexe toutes les données à interval régulier</li>
+                        <li class="fragment"><strong>Indexation incrémentale</strong> : un bach d'indexation indexe les nouvelles données et les données modifiés à interval régulier</li>
+                        <li class="fragment"><strong>Indexation en live</strong> : lors de la mise à jours des données dans les applications, mettre à jours les données dans Solr</li>
+                    </ul>
                     <br>
-                    <p class="fragment">"<strong>Full indexation"</strong>" : un bach d'indexation ré-indexe toutes les données à interval régulier</p>
-                    <p class="fragment">"<strong>Indexation incrémentale</strong>" : un bach d'indexation indexe les nouvelles données et les données modifiés à interval régulier</p>
-                    <p class="fragment">"<strong>Indexation en live</strong>" : lors de la mise à jours des données dans les applications, mettre à jours les données dans Solr</p>
                     <br>
-                    <p class="fragment">Aucune n'est parfaite. Il faut choisir en fonction de son application</p>
-                    <p class="fragment">
+                    <p class="fragment left">Aucune n'est parfaite. Il faut choisir en fonction de son application</p>
+                    <p class="fragment left">
                         Plusieurs de ces techniques peuvent/doivent être utiliser pour en paralelle :
-                        <br>
                         il est toujours utile de pouvoir ré-indexer tout un core à partir de zéro
-                        <br>
-                        (oui Solr plante des fois)
                     </p>
                 </section>
 
                 <section>
-                    <h2>Configuration du schéma.xml à l'indexation</h2>
-                    <p>Une partie du travail de recherche se prépare au moment de l'indexation</p>
-                    <br>
-                    <p>Il faut préparer les données pour simplifier le travail de requête : </p>
-                    <p>
-                        nettoyer les caractères spéciaux, retirer les balises HTML, gérer les accents en fonction de la langue...
-                    </p>
+                    <h2>Text analysis</h2>
+
+                    <img class="stretch no-border" src="assets/data-transformation.png" alt=""/>
+
+                    <aside class="notes" data-markdown>
+                        __analyzer__ : "*Analyzers are components that pre-process input text at index time and/or at search time.*"
+
+                        __tokenizer__ : Unique "*A Tokenizer splits a stream of characters (from each individual field value) into a series of tokens.*"
+
+                        __filter__ : "*Tokens produced by the Tokenizer are passed through a series of Token Filters that add, change, or remove tokens.*"
+                    </aside>
                 </section>
 
                 <section>
@@ -307,7 +244,22 @@
                     </code></pre>
                 </section>
 
-                <section class="title">                    
+                <section>
+                    <h2>fieldType bis</h2>
+                    <p class="fragment">Une partie du travail de recherche se prépare au moment de l'indexation</p>
+                    <br>
+                    <p class="fragment">Il faut <strong>préparer les données pour simplifier le travail de requête</strong> : </p>
+                    <ul class="fragment">
+                        <li>nettoyer les caractères spéciaux</li>
+                        <li>gérer des synonymes</li>
+                        <li>retirer les balises HTML</li>
+                        <li>gérer les accents en fonction de la langue</li>
+                        <li>...</li>
+                    </ul>
+                </section>
+
+                <section class="title">
+                    <h1>Va chercher !</h1>
                     <img src="./assets/lycos-logo.jpg" alt=""/>
                 </section>
 
@@ -315,18 +267,8 @@
                     <h2>Présentation de la synthaxe</h2>
 
                     <div class="fragment">
-                        <pre><code class="no-highlight">http://localhost:8983/solr/[coreName]/select?q=*:*</code></pre>
+                        <pre><code class="no-highlight">http://localhost:8983/solr/[coreName]/select?[parametre]</code></pre>
                         <a>&nbsp;</a>
-                    </div>
-
-                    <div class="fragment">
-                        <pre><code class="no-highlight">http://localhost:8983/solr/collection1/select?q=*:*</a></code></pre>
-                        <a href="http://localhost:8983/solr/collection1/select?q=*:*">Tester</a>
-                    </div>
-
-                    <div class="fragment">
-                        <pre><code class="no-highlight">http://localhost:8983/solr/collection1/select?q=name:apple&fl=id,name</a></code></pre>
-                        <a href="http://localhost:8983/solr/collection1/select?q=name:apple&fl=id,name">Tester</a>
                     </div>
                 </section>
 
@@ -344,10 +286,22 @@
                 </section>
 
                 <section>
-                    <h2>Debugging</h2>
+                    <h2>Requête simple</h2>
+
+                    <div class="fragment">
+                        <pre><code class="no-highlight">http://localhost:8983/solr/collection1/select?q=*:*</code></pre>
+                        <a href="http://localhost:8983/solr/collection1/select?q=*:*">Tester</a>
+                    </div>
+
+                    <div class="fragment">
+                        <pre><code class="no-highlight">http://localhost:8983/solr/collection1/select?q=name:apple&fl=id,name</code></pre>
+                        <a href="http://localhost:8983/solr/collection1/select?q=name:apple&fl=id,name">Tester</a>
+                    </div>
                 </section>
 
-                <!-- ~20 -->
+                <section>
+                    <h2>Debugging</h2>
+                </section>
 
                 <section class="title">
                     <h1>Recherche avancées</h1>
@@ -365,44 +319,22 @@
                     <h2>Faceting</h2>
                 </section>
 
-                <!--                <section class="title">
-                                    <h1>Modules complémentaires</h1>
-                                </section>-->
-
                 <section>
                     <h2>Highlight</h2>
                 </section>
 
-                <!--                <section>
-                                    <h2>SpellCheck</h2>
-                                </section>-->
-
-                <!--                <section>
-                                    <h2>Autocomplete / suggester</h2>
-                                </section>-->
-
-                <section>
-                    <h2>Recherche spaciale</h2>
-                </section>
-
-                <!-- ~30 -->
-
-                <section>
-                    <h2></h2>
+                <section class="title">
+                    <h2>Exemples d'autre modules</h2>
+                    <ul>
+                        <li>SpellCheck</li>
+                        <li>Autocomplete</li>
+                        <li>Suggester</li>
+                        <li>Recherche spaciale</li>
+                    </ul>
                 </section>
 
                 <section>
                     <h1>Fin</h1>
-                    <p>C'est pas tout mais moi j'ai soif.</p>
-                </section>
-
-                <section>
-                    <ul>
-                        <li>Core</li>
-                        <li>schema</li>
-                        <li>field <br>
-                        </li>
-                    </ul>
                 </section>
             </div>
         </div>
