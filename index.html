@@ -86,7 +86,7 @@
                     <p class="fragment">...et en PHP :</p>
                     <br>
                     <p class="fragment">Une extention PECL...</p>
-                    <p class="fragment">...et même des bumdles Symphony 2</p>
+                    <p class="fragment">...et même des bundles Symphony 2</p>
                     <br>
                     <p class="fragment">
                         <a href="http://pecl.php.net/package/solr">Package PECL</a> /
@@ -163,7 +163,7 @@
 <code>&lt;add&gt;
     &lt;doc&gt;
         &lt;field name=&quot;id&quot;&gt;SP2514N&lt;/field&gt;
-        &lt;field name=&quot;name&quot;&gt;Samsung SpinPoint P120 SP2514N - hard drive - 250 GB - ATA-133&lt;/field&gt;
+        &lt;field name=&quot;name&quot;&gt;Samsung SpinPoint P120 SP2514N - hard drive - 250 GB&lt;/field&gt;
         &lt;field name=&quot;cat&quot;&gt;electronics&lt;/field&gt;
         &lt;field name=&quot;cat&quot;&gt;hard drive&lt;/field&gt;
         &lt;field name=&quot;features&quot;&gt;7200RPM, 8MB cache, IDE Ultra ATA-133&lt;/field&gt;
@@ -180,18 +180,18 @@
 
                 <section>
                     <h2>Le processus d'indexation</h2>
-                    <p class="fragment left">Il existe trois méthodes pour gérer sont indexation :</p>
+                    <p class="fragment left">Il existe trois méthodes pour gérer l'indexation :</p>
                     <ul>
                         <li class="fragment"><strong>Full indexation</strong> : un bach d'indexation ré-indexe toutes les données à interval régulier</li>
-                        <li class="fragment"><strong>Indexation incrémentale</strong> : un bach d'indexation indexe les nouvelles données et les données modifiés à interval régulier</li>
-                        <li class="fragment"><strong>Indexation en live</strong> : lors de la mise à jours des données dans les applications, mettre à jours les données dans Solr</li>
+                        <li class="fragment"><strong>Indexation incrémentale</strong> : un bach d'indexation indexe les chamgements depuis la dernière indexation</li>
+                        <li class="fragment"><strong>Indexation en live</strong> : lors de la sauvegarde d'une entité dans le reste du SI, on déclanche  la mise à jour des données de l'entité</li>
                     </ul>
                     <br>
                     <br>
-                    <p class="fragment left">Aucune n'est parfaite. Il faut choisir en fonction de son application</p>
+                    <p class="fragment left">Aucune n'est parfaite. Il faut <strong>choisir en fonction de ses besoins</strong>.</p>
                     <p class="fragment left">
-                        Plusieurs de ces techniques peuvent/doivent être utiliser pour en paralelle :
-                        il est toujours utile de pouvoir ré-indexer tout un core à partir de zéro
+                        <strong>Plusieurs de ces techniques peuvent (doivent) être utiliser</strong> en paralelle :
+                        il est toujours utile de pouvoir ré-indexer tout un core à partir de zéro.
                     </p>
                 </section>
 
@@ -211,8 +211,8 @@
 
                 <section>
                     <h2>Un vrai fieldType</h2>
-                    <pre class="full-size"><code>
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+                    <pre class="full-size">
+<code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
 &lt;!-- [...] --&gt;
 &lt;fieldType name=&quot;text_en&quot; class=&quot;solr.TextField&quot;&gt;
     &lt;analyzer type=&quot;index&quot;&gt;
@@ -240,8 +240,7 @@
         &lt;filter class=&quot;solr.SnowballPorterFilterFactory&quot; language=&quot;English&quot; /&gt;
     &lt;/analyzer&gt;
 &lt;/fieldType&gt;
-&lt;!-- [...] --&gt;
-                    </code></pre>
+&lt;!-- [...] --&gt;</code></pre>
                 </section>
 
                 <section>
@@ -267,8 +266,7 @@
                     <h2>Présentation de la synthaxe</h2>
 
                     <div class="fragment">
-                        <pre><code class="no-highlight">http://localhost:8983/solr/[coreName]/select?[parametre]</code></pre>
-                        <a>&nbsp;</a>
+                        <pre><code class="no-highlight">http://localhost:8983/solr/[core]/[requestHandler]?[params]</code></pre>
                     </div>
                 </section>
 
@@ -276,39 +274,50 @@
                     <h2>Paramètres de base</h2>
 
                     <ul>
-                        <li><strong>q</strong> : coeurs de la requête de recherche</li>
-                        <li><strong>fq</strong> : clause "where" de filtre des résultat (ne perturbe pas la clause <em>q</em>)</li>
+                        <li><strong>q</strong> : coeur de la requête de recherche</li>
+                        <li><strong>fq</strong> : clause "where" de filtre des résultats (plusieurs autorisés)</li>
                         <li><strong>fl</strong> : liste des champs du document a retourner</li>
-                        <li><strong>rows</strong> : nombre de document maximum</li>
+                        <li><strong>rows</strong> : limit</li>
                         <li><strong>start</strong> : offset</li>
                         <li><strong>sort</strong> : ordonancement des résulats</li>
                     </ul>
                 </section>
 
                 <section>
-                    <h2>Requête simple</h2>
+                    <h2>Requêtes simples</h2>
 
+                    <br>
                     <div class="fragment">
                         <pre><code class="no-highlight">http://localhost:8983/solr/collection1/select?q=*:*</code></pre>
-                        <a href="http://localhost:8983/solr/collection1/select?q=*:*">Tester</a>
                     </div>
-
+                    <br>
                     <div class="fragment">
                         <pre><code class="no-highlight">http://localhost:8983/solr/collection1/select?q=name:apple&fl=id,name</code></pre>
-                        <a href="http://localhost:8983/solr/collection1/select?q=name:apple&fl=id,name">Tester</a>
                     </div>
-                </section>
-
-                <section>
-                    <h2>Debugging</h2>
+                    <br>
+                    <div class="fragment">
+                        <pre><code class="no-highlight">http://localhost:8983/solr/collection1/select?q=name:"hard drive"&fl=id,name</code></pre>
+                    </div>
+                    <br>
+                    <div class="fragment">
+                        <pre><code class="no-highlight">http://localhost:8983/solr/collection1/select?q=name:"hard drive"~10&fl=id,name</code></pre>
+                    </div>
+                    <br>
+                    <div class="fragment">
+                        <pre><code class="no-highlight">http://localhost:8983/solr/collection1/select?q=name:apple AND owner_id:42&fl=id,name</code></pre>
+                    </div>
                 </section>
 
                 <section class="title">
-                    <h1>Recherche avancées</h1>
+                    <h1>Recherches avancées</h1>
                 </section>
 
                 <section>
                     <h2>Search revelancy</h2>
+                </section>
+
+                <section>
+                    <h2>Debugging</h2>
                 </section>
 
                 <section>

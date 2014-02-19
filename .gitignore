@@ -13,4 +13,4 @@ nb-configuration.xml
 ### Bower ###
 bower_components
 
-
+solr-conf/solr/articles/data/
