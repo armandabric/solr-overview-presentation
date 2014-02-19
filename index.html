@@ -290,25 +290,34 @@
                     <div class="fragment">
                         <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=*:*</code></pre>
                     </div>
-                    <br>
+
                     <div class="fragment">
-                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=content:battlefield&fl=id,content</code></pre>
+                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=content:battlefield
+&fl=id,content</code></pre>
                     </div>
-                    <br>
+
                     <div class="fragment">
-                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=content:(battlefield DICE)&fl=id,content</code></pre>
+                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select
+?q=content:(battlefield DICE)
+&fl=id,content</code></pre>
                     </div>
-                    <br>
+
                     <div class="fragment">
-                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=content:"battlefield DICE"&fl=id,content</code></pre>
+                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select
+?q=content:"battlefield DICE"
+&fl=id,content</code></pre>
                     </div>
-                    <br>
+
                     <div class="fragment">
-                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=content:"battlefield DICE"~10&fl=id,content</code></pre>
+                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select
+?q=content:"battlefield DICE"~10
+&fl=id,content</code></pre>
                     </div>
-                    <br>
+
                     <div class="fragment">
-                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=content:battlefield AND author_id:2&fl=id,content,author_id</code></pre>
+                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select
+?q=content:battlefield AND author_id:2
+&fl=id,content,author_id</code></pre>
                     </div>
                 </section>
 
@@ -322,51 +331,97 @@
                     <p><strong>Scoring</strong> : Personaliser l'importance des clauses de match de la requête (uniquement le paramètre "q")</p>
                     <br>
                     <div class="fragment">
-                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=content:battlefield AND (author_id:2 OR author_id:3 OR author_id:4)&fl=id,content,author_id</code></pre>
+                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select
+?q=content:battlefield AND (author_id:2 OR author_id:3 OR author_id:4)
+&fl=id,content,author_id</code></pre>
                     </div>
                     <br>
                     <div class="fragment">
-                        <p>Favorison l'auteur #2 : "<code>author_id:2^100"</code></p>
-                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=content:battlefield AND (author_id:2 OR author_id:3 OR author_id:2^100)&fl=id,content,author_id</code></pre>
+                        <p>Favorisons l'auteur #2 : "<code>author_id:2^100"</code></p>
+                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select
+?q=content:battlefield AND (author_id:2^100 OR author_id:3 OR author_id:4)
+&fl=id,content,author_id</code></pre>
                     </div>
                 </section>
 
                 <section>
-                    <h2>Debugging</h2>
+                    <h2>Debugging et aspirine</h2>
 
-                    <p>Relençons la requête précédente avec les informations de débug : "<code>&debugQuery=true</code>"</p>
+                    <p>Relançons la requête précédente en affichant les informations de débug <br><br> "<code>&debugQuery=true</code>"</p>
                     <br>
-                    <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=content:battlefield AND (author_id:2 OR author_id:3 OR author_id:2^100)&fl=id,content,author_id&debugQuery=true&indent=true</code></pre>
+                    <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select
+?q=content:battlefield AND (author_id:2^100 OR author_id:3 OR author_id:4)
+&fl=id,content,author_id
+&debugQuery=true
+&indent=true</code></pre>
                 </section>
 
                 <section>
                     <h2>Grouping</h2>
+
+                    <p>Le groupement Solr est équivalant au groupement SQL</p>
+                    <p>Au détail près que l'on ne peut pas grouper sur le plusieurs champs. Par contre on peut faire plusieurs groupement différent en une requête.</p>
+
+                    <div class="fragment">
+                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select
+?q=content:battlefield
+&group=true
+&group.field=game_id
+&group.limit=3
+&fl=id,content</code></pre>
+                    </div>
                 </section>
 
                 <section>
                     <h2>Faceting</h2>
 
                     <img class="fragment stretch" src="./assets/amazon-faceting.jpg" alt="Exemple de faceting sur amazon.com" />
+                </section>
+
+                <section>
+                    <h2>Faceting</h2>
 
                     <div class="fragment">
-                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=*:*&rows=0&facet=true&facet.field=author_id</code></pre>
+                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select
+?q=*:*
+&rows=0
+&facet=true
+&facet.field=author_id</code></pre>
                     </div>
 
                     <div class="fragment">
-                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select?q=*:*&rows=0&facet=true&facet.field=author_id&facet.limit=3</code></pre>
+                        <pre class="query"><code class="no-highlight">http://localhost:8983/solr/articles/select
+?q=*:*
+&rows=0
+&facet=true
+&facet.field=author_id
+&facet.limit=3</code></pre>
                     </div>
                 </section>
 
                 <section>
                     <h2>Highlight</h2>
+
+                    <p><strong>Mise en avant des termes recherchés</strong> au sein du contenus d'un champs texte.</p>
+
+                    <pre class="fragment query"><code class="no-highlight">http://localhost:8983/solr/articles/select
+?q=content:battlefield
+&fl=content</code></pre>
+
+                    <pre class="fragment query"><code class="no-highlight">http://localhost:8983/solr/articles/select
+?q=content:battlefield
+&fl=content
+&hl=true
+&hl.q=content:battlefield
+&hl.fl=content
+</code></pre>
                 </section>
 
                 <section class="title">
                     <h2>Exemples d'autre modules</h2>
                     <ul>
                         <li>SpellCheck</li>
-                        <li>Autocomplete</li>
-                        <li>Suggester</li>
+                        <li>Suggester (aka Autocomplete)</li>
                         <li>Recherche spaciale</li>
                     </ul>
                 </section>

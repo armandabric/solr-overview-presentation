@@ -47,8 +47,17 @@
     list-style: none;
 }
 
-.reveal pre.query {
+.reveal pre.query,
+.reveal pre.query code {
+    font-size: 0.8em;
     cursor: pointer;
+    white-space: -moz-pre-wrap;     /* Mozilla */
+    white-space: -pre-wrap;           /* Opera 4-6 */
+    white-space: -o-pre-wrap;        /* Opera 7 */
+    word-wrap: break-word;           /* IE5.5+ */
+    word-wrap: pre-wrap;
+    white-space: pre-wrap;             /* CSS3 */
+    overflow: auto;
 }
 .reveal pre.full-size {
     width: 100%;
