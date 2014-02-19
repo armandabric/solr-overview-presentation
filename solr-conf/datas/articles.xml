@@ -1,0 +1,280 @@
+<!--
+    Données en provenance du site d'actualité sur le jeu vidéo Factornews
+    Tout droit réservé à leur auteur respectif
+
+    > http://www.factornews.com <
+-->
+<add>
+    <!--
+        <doc>
+            <field name="id"></field>
+            <field name="title"></field>
+            <field name="content"></field>
+            <field name="tags"></field>
+            <field name="author_id">0</field>
+            <field name="game_id"></field>
+        </doc>
+    -->
+    <doc>
+        <field name="id">1</field>
+        <field name="title">Des nouvelles de Battlefield 4</field>
+        <field name="content">
+            C'est en jouant à Titanfall qu'on se rend que Battlefield 4 est plutôt cool. Certes il n'y a pas de robots de combat ni de guignols qui marchent sur les murs mais les décors sont destructibles, il n'y a pas de bots inutiles mais 64 vrais joueurs, les graphismes sont à la hauteur d'un jeu de 2014 et l'environnement sonore est quand même d'un autre niveau.
+            DICE continue de filer quotidiennement des battlepacks argent ou bronze pendant le mois de février et ils vont bientôt filer un pack qui débloque tous les pistolets. Si vous êtes Premium, c'est aujourd'hui que sort le DLC Second Assault. Sorti il y a un bail sur Xbox One, ce DLC comprend les quatre cartes les plus emblématiques de Battlefield 3 (Operation Metro, Caspian Border, Gulf of Oman et Operation Firestorm) remaniées à la sauce Frostbite 3. Pour la plèbe non-Premium, le DLC sera disponible le 4 mars.
+            Le prochain DLC sera Naval Strike et contiendra quatre cartes ainsi qu'un nouveau mode de jeu : Carrier Assault. C'est en fait le retour du mode Titan de Battlefield 2142 version bataille navale. On finit cette news avec une vidéo d'Evets et de son équipe qui montre qu'il n'y a rien de plus beau qu'une histoire d'amour entre un homme et son lance-roquettes.
+        </field>
+        <field name="tags">PC</field>
+        <field name="tags">XBOX ONE</field>
+        <field name="tags">Playstation 4</field>
+        <field name="tags">Battlefield 4</field>
+        <field name="tags">FPS</field>
+        <field name="author_id">1</field>
+        <field name="game_id">1</field>
+    </doc>
+    <doc>
+        <field name="id">2</field>
+        <field name="title">Battlefield 4 : DICE tente de se racheter</field>
+        <field name="content">
+            Trois mois après sa sortie, DICE continue de débugguer Battlefield 4 avec des patchs hebdomadaires, le prochain devant tomber dans les jours qui suivent. Histoire de se faire pardonner de cette sortie quelque peu chaotique, DICE va filer plein de cadeaux aux joueurs pendant le mois de février.
+            Chaque jour du mois, les joueurs recevront un battlepack bronze ou argent qui contient des boosts d'XP et des skins pour ses flingues ou des accessoires. DICE débloquera aussi tous les pistolets et toutes les grenades pour tous les joueurs. Les joueurs Premium auront en plus tous les shotguns et tous les fusils de snipe. Enfin DICE organisera un week-end où les XP seront doublés pour tous.
+            Un vrai cadeau aurait été d'offrir des packs de cartes voire des abonnements premium aux joueurs qui sont là depuis le début mais il ne faut pas rêver. EA pense que la sortie de Titanfall se fera plus en douceur grâce aux leçons apprises avec Battlefield 4. Leçon numéro 1 : tant qu'à faire une beta ouverte, faire en sorte qu'elle dure plus de cinq jours...
+        </field>
+        <field name="tags">PC</field>
+        <field name="tags">XBOX ONE</field>
+        <field name="tags">Playstation 4</field>
+        <field name="tags">Battlefield 4</field>
+        <field name="tags">FPS</field>
+        <field name="author_id">1</field>
+        <field name="game_id">1</field>
+    </doc>
+    <doc>
+        <field name="id">3</field>
+        <field name="title">Une petite Mantle pour rafraîchir plus vite ?</field>
+        <field name="content">
+            La nouvelle mise à jour pour la version PC de Battlefield 4 est sortie hier. Elle pèse 1,2 Go et est centrée sur les perfs avec un ajout de taille : Mantle, la nouvelle API de rendu développée conjointement par AMD et DICE.
+            Pour l'utiliser, il faut une carte AMD équipée du Graphics Core Next (Radeon HD 7000, HD 8000, R7, and R9), les pilotes Catalyst 14.1 qui vont arriver sous peu et un OS 64 bits.
+            DICE a publié ses propres benchmarks qui comparent DirectX 11 à Mantle. La conclusion est simple : si le GPU est le goulot d'étranglement, le gain de perf n'est pas énorme. Par contre quand le CPU est à la traine, c'est là où Mantle donne tout son potentiel. DICE parle d'un gain de près de 60% de perf ! Ca a toujours été le but de Mantle : réduire la charge CPU des appels à l'API graphique.
+            On attendra d'avoir des benchmarks indépendants pour confirmer les dires d'AMD et DICE mais c'est encourageant. Si cela permet à AMD de creuser l'écart, Nvidia sera forcé de s'aligner et de sortir des drivers Mantle à son tour.
+        </field>
+        <field name="tags">PC</field>
+        <field name="tags">XBOX ONE</field>
+        <field name="tags">Playstation 4</field>
+        <field name="tags">Battlefield 4</field>
+        <field name="tags">FPS</field>
+        <field name="author_id">2</field>
+        <field name="game_id">1</field>
+    </doc>
+    <doc>
+        <field name="id">4</field>
+        <field name="title">Battlefield 4 est interdit en Chine</field>
+        <field name="content">
+            Le gouvernement chinois vient de bannir Battlefield 4 du territoire. Ils vont même jusqu'à censurer le nom Battlefield 4 des réseaux sociaux. Il parait que le scénario du jeu donne une mauvaise image de la Chine et de son armée.
+            On imagine donc qu'ils parlent du mode solo. Pourtant DICE s'était déjà auto-censuré : ils ont fait en sorte que personne n'y joue en le rendant dénué d’intérêt. Accessoirement le jeu n'a jamais été officiellement en vente en Chine donc ce bannissement ne sert à rien à part à renforcer l'aspect totalitariste du gouvernement chinois. Il me permet aussi de gratter de l'octet avant de retourner fragger sur le multi du jeu.
+            Avec la future arrivée des consoles de jeu en Chine, il est désormais clair que les futurs méchants des jeux ne seront pas des Chinois.
+        </field>
+        <field name="tags">PC</field>
+        <field name="tags">XBOX ONE</field>
+        <field name="tags">Playstation 4</field>
+        <field name="tags">Battlefield 4</field>
+        <field name="tags">FPS</field>
+        <field name="author_id">2</field>
+        <field name="game_id">1</field>
+    </doc>
+    <doc>
+        <field name="id">5</field>
+        <field name="title">Second Assault pour BF4 : le même, mais en pareil</field>
+        <field name="content">
+            Les joueurs aiment bien racheter le même jeu chaque année, certes, mais ce qu'ils préfèrent, c'est continuer à jouer aux mêmes maps d'une version sur l'autre. EA l'a bien compris et sort Second Assault pour Battlefield 4, un DLC regroupant quatre maps (Operation Firestorm, Caspian Border, Gulf of Oman et Operation Metro) de l'épisode précédent. Elles ont été retouchées et profitent du système de Levolution qui permettra par exemple d'éteindre la lumière dans Operation Metro. Ouaip monsieur.
+            Second Assault est déjà disponible aux membres premiums sur la mouture Xbox One. Le 3 décembre, ce sera au tour des non premium toujours sur la console de Microsoft, puis à une date encore inconnue pour les autres plateformes. Sinon, vous pouvez toujours relancer Battlefield 3.
+        </field>
+        <field name="tags">PC</field>
+        <field name="tags">XBOX ONE</field>
+        <field name="tags">Playstation 4</field>
+        <field name="tags">Battlefield 4</field>
+        <field name="tags">FPS</field>
+        <field name="author_id">3</field>
+        <field name="game_id">1</field>
+    </doc>
+    <doc>
+        <field name="id">6</field>
+        <field name="title">Battlefield 4 : un comparatif Xbox One / PS4 / PC</field>
+        <field name="content">
+            Depuis 2006, Digital Foundry a élevé le troll de la guéguerre des consoles au rang de science, et c'est vachement pratique quand on hésite entre deux versions d'un même jeu. Dans le cas qui nous occupe aujourd'hui, cela permet de voir sur un premier cas concret les différences de rendu entre les moutures PC, PS4 et Xbox One, même si la version de Battlefield 4 utilisée pour les mesure n'était pas tout à fait finalisée.
+            Globalement, le rendu est comparable sur les deux consoles à celui sur PC avec les paramètres en high. Si la mouture PS4 tourne dans une meilleure résolution (900p, contre un petit 720p pour la Xbox One), les filtres d'upscaling particulièrement efficaces chez Microsoft sauvent la situation en accentuant les détails, sans que cela ne fasse de miracles sur l'aliasing. Les deux ont en tout cas le bon goût de tourner à 60FPS quasi-constants. Pour plus de détails, direction l'article.
+        </field>
+        <field name="tags">PC</field>
+        <field name="tags">XBOX ONE</field>
+        <field name="tags">Playstation 4</field>
+        <field name="tags">Battlefield 4</field>
+        <field name="tags">FPS</field>
+        <field name="author_id">4</field>
+        <field name="game_id">1</field>
+    </doc>
+    <doc>
+        <field name="id">7</field>
+        <field name="title">Encore un peu de multi de BF 4</field>
+        <field name="content">
+            En marge du concours de quéquette organisé par Digital Foundry, EA a sorti la bande-annonce de lancement de Battlefield 4.
+            Elle est entièrement dédiée au multi et propose quelques moments assez dingues. Selon les premiers retours, les possibilités de destruction ne sont pas au niveau du premier Battlefield: Bad Company mais n'ont rien à envier au second.
+        </field>
+        <field name="tags">PC</field>
+        <field name="tags">XBOX ONE</field>
+        <field name="tags">Playstation 4</field>
+        <field name="tags">Battlefield 4</field>
+        <field name="tags">FPS</field>
+        <field name="author_id">2</field>
+        <field name="game_id">1</field>
+    </doc>
+    <doc>
+        <field name="id">8</field>
+        <field name="title">GTA V sur PC : la rumeur numéro 4896</field>
+        <field name="content">
+            Ca doit être le secret le moins bien gardé de l'industrie du jeu vidéo : une version PC de Grand Theft Auto V serait en développement. La nouvelle preuve du jour sont des listings de bugs provenant de Rockstar et mentionnant cette version PC de multiple fois. Il est question de DirectX 11 et de version 64 bits. Des moddeurs en avaient marre d'attendre alors ils ont importé les assets de GTA V dans Grand Theft Auto 4.
+            Au passage et ce n'est pas tellement une suprise mais Grand Theft Auto V est le jeu le plus vendu de l'année 2013 aux US. Par ailleurs, Rockstar a commencé à bannir de GTA Online les tricheurs qui ont trouvé le moyen d'avoir de l'argent illimité. C'est assez paradoxal dans un jeu où il faut commettre des crimes pour gagner de l'argent.
+        </field>
+        <field name="tags">XBOX ONE</field>
+        <field name="tags">Playstation 4</field>
+        <field name="tags">Grand Theft Auto V</field>
+        <field name="tags">Action</field>
+        <field name="author_id">6</field>
+        <field name="game_id">2</field>
+    </doc>
+    <doc>
+        <field name="id">9</field>
+        <field name="title">C'est noel aussi dans GTA Online</field>
+        <field name="content">
+            Fêter noël à Los Angeles est délicieusement absurde. C'est assez dur d'imaginer le père noël, son traîneau et toutes ces conneries quand il fait 25 et qu'on va à la plage. Il y a bien quelques sapins mais c'est plus les palmiers qu'on décore avec des guirlandes. Dans le centre commercial The Grove, des cannons à neige se mettent en route le soir pour faire tomber de la neige artificielle sur des gens en t-shirt. A Beverly Hills, ils mettent des nœuds façon paquets cadeaux sur les Lamborghini dans les concessionnaires de luxe.
+            Mais dans un jeu vidéo, tout est permis. Si vous lancez GTA Online aujourd'hui, vous découvrir un Los Santos sous la neige. Mais ce n'est pas tout. La dernière mise à jour apporte des masques de père noël et de bonhomme de neige, des nouveaux filtres pour Snapmatic (le faux Instagram du jeu) ainsi qu'un créateur de meme et des soldes sur à peu près tout : voitures, appartements, armes...
+        </field>
+        <field name="tags">XBOX ONE</field>
+        <field name="tags">Playstation 4</field>
+        <field name="tags">Grand Theft Auto V</field>
+        <field name="tags">Action</field>
+        <field name="author_id">1</field>
+        <field name="game_id">2</field>
+    </doc>
+    <doc>
+        <field name="id">10</field>
+        <field name="title">Michael, Franklin et Trevor font sauter la banque</field>
+        <field name="content">
+            Pour le troisième trimestre fiscal 2014, Take Two a réalisé un CA de 1,86 milliard de dollars contre 415,8 millions l'année d'avant. La raison tient en trois lettres et un chiffre romain : GTA V. Take Two a annoncé avoir vendu 32,5 millions d'exemplaires du jeu.
+            Au passage, ils ont aussi vendu 5 millions d'exemplaires du honteux NBA 2K14. Borderlands 2 a dépassé les 8,5 millions d'exemplaires vendus ce qui en fait le jeu 2K le plus vendu de tous les temps. Les anciens jeux Take Two continuent aussi de bien se vendre et notamment Bioshock Infinite et Civilization V. Ce dernier aura bientôt le droit à sa Complete Edition qui sortira demain. XCOM : Enemy Unknown aura aussi sa Complete Edition qui sortira le 4 mars.
+            Take Two n'en a pas profité pour faire des annonces fracassantes. On sait juste qu'Evolve sortira cet automne et que cette année il y aura un NBA 2K15 et un WWE 2K15.
+        </field>
+        <field name="tags">XBOX ONE</field>
+        <field name="tags">Playstation 4</field>
+        <field name="tags">Grand Theft Auto V</field>
+        <field name="tags">Action</field>
+        <field name="author_id">1</field>
+        <field name="game_id">2</field>
+    </doc>
+    <doc>
+        <field name="id">11</field>
+        <field name="title">GTA V: Take Two braque le monde</field>
+        <field name="content">
+            Six semaines après la sortie de Grand Theft Auto V, Take Two vient d'annoncer qu'ils ont vendu 29 millions d'exemplaires du jeu aux boutiques de jv. C'est plus que Grand Theft Auto 4 en 5 ans.
+        </field>
+        <field name="tags">XBOX ONE</field>
+        <field name="tags">Playstation 4</field>
+        <field name="tags">Grand Theft Auto V</field>
+        <field name="tags">Action</field>
+        <field name="author_id">2</field>
+        <field name="game_id">2</field>
+    </doc>
+    <doc>
+        <field name="id">12</field>
+        <field name="title">MGS V: Ground Zeroes enfonce le clou</field>
+        <field name="content">
+            C'est un peu le running gag du moment : "Regardez comment les jeux tournent bien mieux sur PS4 qu'Xbox One". D'habitudes les éditeurs restent relativement discrets sur la question. Pour Metal Gear Solid 5: Ground Zeroes, Konami a carrément créé une page spéciale pour montrer les différences. Les versions PS3 et 360 tournent donc en sub-720p (upscalé en 720P) et à 30 FPS, la version XO affiche du 720p@60FPS et la version PS4 balance autant d'images par seconde mais en 1080p.
+            C'est aussi l'occasion de se rendre compte que les versions old-gen du jeu se défendent plutôt bien. Les fans japonais du jeu pourront acheter la version PS4 en bundle avec une édition spéciale de la console : la Fox Edition.
+        </field>
+        <field name="tags">Metal Gear Solid 5: Ground Zeroes</field>
+        <field name="tags">XBOX ONE</field>
+        <field name="tags">Playstation 4</field>
+        <field name="tags">Action-Aventure</field>
+        <field name="author_id">3</field>
+    </doc>
+    <doc>
+        <field name="id">13</field>
+        <field name="title">Metal Gear Solid 5: Ground Zeroes fait dans le déjà vu</field>
+        <field name="content">
+            Metal Gear Solid 4 : Guns of the Patriots étant sorti il y a plus de 5 ans, je pense donc qu'il y a prescription et qu'on peut enfin dévoiler ce qui se passe durant l'acte 4 : on retourne à Shadow Moses. Non seulement on y retourne mais en plus on revit le début de Metal Gear Solid avec les graphismes PS1. Les traces de pas dans la neige que les gardes suivent... Combien de jeux soit disant d'infiltration l'ont fait après cela ? Mais ce n'est pas tout : à la fin de l'acte 4, on fait ce qu'on a rêvé de faire depuis le début de la série : on pilote un Metal Gear et on affronte un autre Metal Gear.
+            Bref. Un des missions secondaires de Metal Gear Solid 5: Ground Zeroes qui sera exclusive aux versions PS3 et PS4 sera aussi un hommage au premier MGS avec des ennemis et des lieux inspirés du jeu ainsi que la possibilité d'incarner la version low-poly du Snake de 98.
+            Konami a aussi publiée une vidéo de 12 minutes du jeu qui présente une autre mission secondaire. La décision d'avoir fait de Ground Zeroes un jeu à part est discutable mais il sera vendu à petit prix, la durée de vie sera probablement correct et ça évitera de patienter trop longtemps pour avoir notre fix de Snake. C'est un peu comme Metal Gear Solid 2. Ils avaient vendu la démo. En bonus on pouvait jouer à Zone Of The Enders sur le même DVD.
+        </field>
+        <field name="tags">Metal Gear Solid 5: Ground Zeroes</field>
+        <field name="tags">XBOX ONE</field>
+        <field name="tags">Playstation 4</field>
+        <field name="tags">Action-Aventure</field>
+        <field name="author_id">3</field>
+    </doc>
+    <doc>
+        <field name="id">14</field>
+        <field name="title">Kickstarter hacké</field>
+        <field name="content">Au cas où vous auriez raté l'info, le site Kickstarter s'est fait hacker la semaine dernière et bien qu'a priori aucune donnée sensible n'ait été volée, il est recommandé de changer vos mots de passe.</field>
+        <field name="tags">Kickstarter</field>
+        <field name="author_id">4</field>
+    </doc>
+    <doc>
+        <field name="id">15</field>
+        <field name="title">David Cage recevra la Légion d'honneur</field>
+        <field name="content">
+            Salut, c'est D.Cage. Mais pour vous, c'est Messire D.Cage, sales gueux. En mars prochain, je vais être élevé au grade de Chevalier de la Légion d'honneur pour couronner l'ensemble de mon oeuvre vaguement interactive. Qu'on ne dise plus que j'ai la grosse tête, je suis juste un meilleur être humain que vous.
+            Maintenant que nous avons établi cela, je me permet, par cet article, de faire passer un petit message : Amis Canadiens, je sais qu'il n'y a pas si longtemps, je menaçais de délocaliser chez vous si on me retirait mes crédits d'impôts, mais les enchères ont monté. Je veux bien venir vous apporter la civilisation, mais j'exige désormais un château et la moitié de vos meilleures terres. Et quelques carrières de jeunes actrices en sacrifice.
+        </field>
+        <field name="author_id">2</field>
+    </doc>
+    <doc>
+        <field name="id">16</field>
+        <field name="title">South Park: Les 13 premières minutes</field>
+        <field name="content">
+            La sortie approchant à grand pas, Ubisoft commence à communiquer sérieusement sur South Park : le bâton de la vérité. Après les quelques extraits de gameplay et autres behind-the-scenes, voici une nouvelle vidéo qui montre tout simplement les 13 premières minutes du jeu - le tutorial, quoi.
+            On constate immédiatement que la réalisation est impressionnante. On passe de façon transparente entre la narration (qui se regarde comme un épisode typique) et les phases de jeu - tout en étant toujours graphiquement cohérent.
+            South Park : le bâton de la vérité est toujours prévu pour le 4 Mars 2014. En attendant, nous attendons avec impatience vos remarques sur le fait que la VF n'ait pas l'air disponible pour le moment.
+        </field>
+        <field name="tags">South Park : le bâton de la vérité</field>
+        <field name="tags">PC</field>
+        <field name="tags">Online</field>
+        <field name="author_id">3</field>
+        <field name="game_id">42</field>
+    </doc>
+    <doc>
+        <field name="id">17</field>
+        <field name="title"></field>
+        <field name="content"></field>
+        <field name="tags"></field>
+        <field name="author_id">0</field>
+        <field name="game_id"></field>
+    </doc>
+    <doc>
+        <field name="id">18</field>
+        <field name="title"></field>
+        <field name="content"></field>
+        <field name="tags"></field>
+        <field name="author_id">0</field>
+        <field name="game_id"></field>
+    </doc>
+    <doc>
+        <field name="id">19</field>
+        <field name="title">Tag To The Bone</field>
+        <field name="content">
+            On l'oublie souvent mais la démocratie c'est avant tout donner le pouvoir aux cons et la liberté d'expression c'est leur donner la parole. Du coup, quand Valve a lancé le système de tags, les gens s'en sont donnés à cœur joie à grands coups d'insultes, de spoilers et de désinformation. Il y a même une bande de gentils débiles qui tentent d'imposer le tag Factornews Seal Of Quality (ne lâchez rien les gars !).
+            Forcément les développeurs n'étaient pas très contents et Valve a fait le ménage tout en ajoutant la possibilité de signaler si un tag est inapproprié. On espère quand même qu'ils ne vont pas virer tous les trucs rigolos. Je suis fan de Rome Wasn't Patched In a Day
+        </field>
+        <field name="tags">Steam</field>
+        <field name="author_id">1</field>
+    </doc>
+    <doc>
+        <field name="id">20</field>
+        <field name="title">Le Humble Bundle 11 frappe fort !</field>
+        <field name="content">
+            Bon allez, l'ami Levine vous a asséné le ptit coup qui tue derrière la nuque ? Venez chercher bonheur auprès du nouveau Humble Bundle cuvée onze : il n'y a que du lourd dedans.
+            Guacamelee! le metroidvania olé olé, Dust: An Elysian Tail le beat'em all anthropomorphique, Giana Sisters: Twisted Dreams le platformer victime du trouble de la personnalité multiple, Antichamber le first person puzzler non-euclidien, et The Swapper le puzzle-platformer où on suicide ses clones par paquet de douze. Et si vous battez l'average vous repartez avec Monaco, le seul jeu avec des factoriens dedans.
+        </field>
+        <field name="tags">Humble Bundle</field>
+        <field name="tags">Promo</field>
+        <field name="author_id">7</field>
+        <field name="game_id"></field>
+    </doc>
+</add>
+
